@@ -51,6 +51,8 @@ public class Stack <T> {
     }
     //void push(T data) (adds element to the top of the stack)
     public void push(T data){
-
+        StackNode<T> newNode = new StackNode<T>(data); //Create new stackNode to store inputted data
+        newNode.setChild(this.stackNode); //Set current top node to the child of new node
+        this.stackNode = newNode; //Make the top node point to the new node
     }
 }
