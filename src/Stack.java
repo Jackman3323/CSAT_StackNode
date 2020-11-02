@@ -31,6 +31,9 @@ public class Stack <T> {
     }
     //T Peek() (look at top data)
     public T peek(){
+        if(this.isEmpty()){
+            return null;
+        }
         return this.stackNode.get();
     }
     //boolean isEmpty() (returns true if empty)
@@ -47,6 +50,7 @@ public class Stack <T> {
         }
         StackNode<T> removedElem = this.stackNode;
         this.stackNode = stackNode.getChild();
+        size--;
         return removedElem.get();
     }
     //void push(T data) (adds element to the top of the stack)
@@ -54,5 +58,6 @@ public class Stack <T> {
         StackNode<T> newNode = new StackNode<T>(data); //Create new stackNode to store inputted data
         newNode.setChild(this.stackNode); //Set current top node to the child of new node
         this.stackNode = newNode; //Make the top node point to the new node
+        size++;
     }
 }
